@@ -14,7 +14,12 @@ dotenv.config();
 // app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }))
 
 app.use(express.json({ limit: '10mb' }))
-app.use(cors())
+const corsOptions = {
+  origin: '*', // замените на URL вашего фронтенда на Netlify
+  optionsSuccessStatus: 200 // некоторые браузеры на старой платформе не поддерживают код 204
+};
+
+app.use(cors(corsOptions));
 
 mongoose
     .connect(process.env.MONGO_URL, {
