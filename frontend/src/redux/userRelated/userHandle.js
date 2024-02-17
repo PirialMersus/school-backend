@@ -7,7 +7,6 @@ import {
     authError,
     authLogout,
     doneSuccess,
-    getDeleteSuccess,
     getRequest,
     getFailed,
     getError,
@@ -84,7 +83,8 @@ export const getUserDetails = (id, address) => async (dispatch) => {
 // }
 
 
-export const deleteUser = (id, address) => async (dispatch) => {
+// export const deleteUser = (id, address) => async (dispatch) => {
+export const deleteUser = () => async (dispatch) => {
     dispatch(getRequest());
     dispatch(getFailed("Sorry the delete function has been disabled for now."));
 }
