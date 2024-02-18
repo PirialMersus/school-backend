@@ -84,7 +84,7 @@ const ClassDetails = () => {
                         navigate(`/Admin/class/subject/${classID}/${row.id}`)
                     }}
                 >
-                    View
+                    Просмотреть
                 </BlueButton >
             </>
         );
@@ -110,13 +110,13 @@ const ClassDetails = () => {
                             variant="contained"
                             onClick={() => navigate("/Admin/addsubject/" + classID)}
                         >
-                            Add Subjects
+                            Добавить предметы
                         </GreenButton>
                     </Box>
                     :
                     <>
                         <Typography variant="h5" gutterBottom>
-                            Subjects List:
+                            Список предметов:
                         </Typography>
 
                         <TableTemplate buttonHaver={SubjectsButtonHaver} columns={subjectColumns} rows={subjectRows} />

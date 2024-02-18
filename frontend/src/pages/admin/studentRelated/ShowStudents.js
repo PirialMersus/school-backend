@@ -115,7 +115,7 @@ const ShowStudents = () => {
                 </IconButton>
                 <BlueButton variant="contained"
                     onClick={() => navigate("/Admin/students/student/" + row.id)}>
-                    View
+                    Просмотреть
                 </BlueButton>
                 <React.Fragment>
                     <ButtonGroup variant="contained" ref={anchorRef} aria-label="split button">
@@ -193,7 +193,7 @@ const ShowStudents = () => {
                     {response ?
                         <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '16px' }}>
                             <GreenButton variant="contained" onClick={() => navigate("/Admin/addstudents")}>
-                                Add Students
+                                Добавить риэлторов
                             </GreenButton>
                         </Box>
                         :

@@ -22,9 +22,9 @@ const Logout = () => {
     return (
         <LogoutContainer>
             <h1>{currentUser.name}</h1>
-            <LogoutMessage>Are you sure you want to log out?</LogoutMessage>
-            <LogoutButtonLogout onClick={handleLogout}>Log Out</LogoutButtonLogout>
-            <LogoutButtonCancel onClick={handleCancel}>Cancel</LogoutButtonCancel>
+            <LogoutMessage>Ты уверен, что хочешь выйти</LogoutMessage>
+            <LogoutButtonLogout onClick={handleLogout}>Выйти</LogoutButtonLogout>
+            <LogoutButtonCancel onClick={handleCancel}>Отмена</LogoutButtonCancel>
         </LogoutContainer>
     );
 };

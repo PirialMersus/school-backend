@@ -133,22 +133,22 @@ const ChooseUser = ({visitor}) => {
 export default ChooseUser;
 
 const StyledContainer = styled.div`
-  background: linear-gradient(to bottom, #411d70, #19118b);
+  background: var(--color-main-linear);
   height: 120vh;
   display: flex;
   justify-content: center;
   padding: 2rem;
 `;
 
-const StyledPaper = styled(Paper)`
+const StyledPaper = styled.div`
   padding: 20px;
   text-align: center;
-  background-color: #1f1f38;
-  color: rgba(255, 255, 255, 0.6);
   cursor: pointer;
+  background-color: white;
+  transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #2c2c6c;
+    background-color: var(--color-primary-variant);
     color: white;
   }
 `;

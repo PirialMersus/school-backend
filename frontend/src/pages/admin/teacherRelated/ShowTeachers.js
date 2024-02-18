@@ -97,7 +97,7 @@ const ShowTeachers = () => {
                                 </StyledTableCell>
                             ))}
                             <StyledTableCell align="center">
-                                Actions
+                                Действия
                             </StyledTableCell>
                         </StyledTableRow>
                     </TableHead>
@@ -119,7 +119,7 @@ const ShowTeachers = () => {
                                                                 onClick={() => {
                                                                     navigate(`/Admin/teachers/choosesubject/${row.teachSclassID}/${row.id}`)
                                                                 }}>
-                                                                Add Subject
+                                                                Добавить предмет
                                                             </Button>
                                                         )}
                                                     </StyledTableCell>
@@ -137,7 +137,7 @@ const ShowTeachers = () => {
                                             </IconButton>
                                             <BlueButton variant="contained"
                                                 onClick={() => navigate("/Admin/teachers/teacher/" + row.id)}>
-                                                View
+                                                Просмотр
                                             </BlueButton>
                                         </StyledTableCell>
                                     </StyledTableRow>

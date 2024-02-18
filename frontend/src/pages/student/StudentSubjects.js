@@ -47,13 +47,13 @@ const StudentSubjects = () => {
         return (
             <>
                 <Typography variant="h4" align="center" gutterBottom>
-                    Subject Marks
+                    Оценки по предметам
                 </Typography>
                 <Table>
                     <TableHead>
                         <StyledTableRow>
-                            <StyledTableCell>Subject</StyledTableCell>
-                            <StyledTableCell>Marks</StyledTableCell>
+                            <StyledTableCell>Предмет</StyledTableCell>
+                            <StyledTableCell>Оценки</StyledTableCell>
                         </StyledTableRow>
                     </TableHead>
                     <TableBody>
@@ -82,13 +82,13 @@ const StudentSubjects = () => {
         return (
             <Container>
                 <Typography variant="h4" align="center" gutterBottom>
-                    Class Details
+                    Детали класса
                 </Typography>
                 <Typography variant="h5" gutterBottom>
-                    You are currently in Class {sclassDetails && sclassDetails.sclassName}
+                    В данный момент вы находитесь в классе {sclassDetails && sclassDetails.sclassName}
                 </Typography>
                 <Typography variant="h6" gutterBottom>
-                    And these are the subjects:
+                    И вот список предметов:
                 </Typography>
                 {subjectsList &&
                     subjectsList.map((subject, index) => (
@@ -105,7 +105,7 @@ const StudentSubjects = () => {
     return (
         <>
             {loading ? (
-                <div>Loading...</div>
+                <div>Загрузка...</div>
             ) : (
                 <div>
                     {subjectMarks && Array.isArray(subjectMarks) && subjectMarks.length > 0

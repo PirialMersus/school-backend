@@ -98,7 +98,7 @@ const AddStudent = ({ situation }) => {
                     {
                         situation === "Student" &&
                         <>
-                            <label>Class</label>
+                            <label>Класс</label>
                             <select
                                 className="registerInput"
                                 value={className}
@@ -113,7 +113,7 @@ const AddStudent = ({ situation }) => {
                         </>
                     }
 
-                    <label>Roll Number</label>
+                    <label>Номер зачётки</label>
                     <input className="registerInput" type="number" placeholder="Enter student's Roll Number..."
                         value={rollNum}
                         onChange={(event) => setRollNum(event.target.value)}
@@ -129,7 +129,7 @@ const AddStudent = ({ situation }) => {
                         {loader ? (
                             <CircularProgress size={24} color="inherit" />
                         ) : (
-                            'Add'
+                            'Добавить'
                         )}
                     </button>
                 </form>

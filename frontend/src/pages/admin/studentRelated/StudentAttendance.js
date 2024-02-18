@@ -112,11 +112,11 @@ const StudentAttendance = ({ situation }) => {
                         >
                             <Stack spacing={1} sx={{ mb: 3 }}>
                                 <Typography variant="h4">
-                                    Student Name: {userDetails.name}
+                                    Имя риэлтора: {userDetails.name}
                                 </Typography>
                                 {currentUser.teachSubject &&
                                     <Typography variant="h4">
-                                        Subject Name: {currentUser.teachSubject?.subName}
+                                        Название предмета: {currentUser.teachSubject?.subName}
                                     </Typography>
                                 }
                             </Stack>
@@ -130,7 +130,7 @@ const StudentAttendance = ({ situation }) => {
                                                 labelId="demo-simple-select-label"
                                                 id="demo-simple-select"
                                                 value={subjectName}
-                                                label="Choose an option"
+                                                label="Выберите опцию"
                                                 onChange={changeHandler} required
                                             >
                                                 {subjectsList ?
@@ -141,7 +141,7 @@ const StudentAttendance = ({ situation }) => {
                                                     ))
                                                     :
                                                     <MenuItem value="Select Subject">
-                                                        Add Subjects For Attendance
+                                                        Добавить предметы для посещаемости
                                                     </MenuItem>
                                                 }
                                             </Select>
@@ -157,8 +157,8 @@ const StudentAttendance = ({ situation }) => {
                                             onChange={(event) => setStatus(event.target.value)}
                                             required
                                         >
-                                            <MenuItem value="Present">Present</MenuItem>
-                                            <MenuItem value="Absent">Absent</MenuItem>
+                                            <MenuItem value="Present">Присутствует</MenuItem>
+                                            <MenuItem value="Absent">Отсутствует</MenuItem>
                                         </Select>
                                     </FormControl>
                                     <FormControl>

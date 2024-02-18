@@ -66,7 +66,7 @@ const ShowSubjects = () => {
                 </IconButton>
                 <BlueButton variant="contained"
                     onClick={() => navigate(`/Admin/subjects/subject/${row.sclassID}/${row.id}`)}>
-                    View
+                    Просмотреть
                 </BlueButton>
             </>
         );
@@ -86,14 +86,14 @@ const ShowSubjects = () => {
     return (
         <>
             {loading ?
-                <div>Loading...</div>
+                <div>Загрузка...</div>
                 :
                 <>
                     {response ?
                         <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '16px' }}>
                             <GreenButton variant="contained"
                                 onClick={() => navigate("/Admin/subjects/chooseclass")}>
-                                Add Subjects
+                                Добавить Предметы
                             </GreenButton>
                         </Box>
                         :

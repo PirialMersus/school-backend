@@ -34,14 +34,14 @@ const Homepage = () => {
               </StyledLink>
               <StyledLink to="/chooseasguest">
                 <Button variant="outlined" fullWidth
-                        sx={{mt: 2, mb: 3, color: "#7f56da", borderColor: "#7f56da"}}
+                        sx={{mt: 2, mb: 3, color: "#660513", borderColor: "#660513"}}
                 >
-                  Войти как Гость
+                  Войти как гость
                 </Button>
               </StyledLink>
               <StyledText>
                 Нет акаунта?{' '}
-                <Link to="/Adminregister" style={{color: "#550080"}}>
+                <Link to="/Adminregister" style={{color: "#660513"}}>
                   Зарегистрироваться
                 </Link>
               </StyledText>
@@ -87,7 +87,6 @@ const StyledTitle = styled.h1`
 `;
 
 const StyledText = styled.p`
-  /* color: #550080; */
   margin-top: 30px;
   margin-bottom: 30px;
   letter-spacing: normal;

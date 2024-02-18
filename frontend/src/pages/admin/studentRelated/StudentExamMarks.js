@@ -89,7 +89,7 @@ const StudentExamMarks = ({ situation }) => {
             {loading
                 ?
                 <>
-                    <div>Loading...</div>
+                    <div>Загрузка...</div>
                 </>
                 :
                 <>
@@ -111,11 +111,11 @@ const StudentExamMarks = ({ situation }) => {
                         >
                             <Stack spacing={1} sx={{ mb: 3 }}>
                                 <Typography variant="h4">
-                                    Student Name: {userDetails.name}
+                                    Имя ученика: {userDetails.name}
                                 </Typography>
                                 {currentUser.teachSubject &&
                                     <Typography variant="h4">
-                                        Subject Name: {currentUser.teachSubject?.subName}
+                                        Название предмета: {currentUser.teachSubject?.subName}
                                     </Typography>
                                 }
                             </Stack>
@@ -125,13 +125,13 @@ const StudentExamMarks = ({ situation }) => {
                                         situation === "Student" &&
                                         <FormControl fullWidth>
                                             <InputLabel id="demo-simple-select-label">
-                                                Select Subject
+                                                Выберите предмет
                                             </InputLabel>
                                             <Select
                                                 labelId="demo-simple-select-label"
                                                 id="demo-simple-select"
                                                 value={subjectName}
-                                                label="Choose an option"
+                                                label="Выберите опцию"
                                                 onChange={changeHandler} required
                                             >
                                                 {subjectsList ?
@@ -142,7 +142,7 @@ const StudentExamMarks = ({ situation }) => {
                                                     ))
                                                     :
                                                     <MenuItem value="Select Subject">
-                                                        Add Subjects For Marks
+                                                        Добавить предметы для оценок
                                                     </MenuItem>
                                                 }
                                             </Select>
@@ -166,7 +166,7 @@ const StudentExamMarks = ({ situation }) => {
                                     type="submit"
                                     disabled={loader}
                                 >
-                                    {loader ? <CircularProgress size={24} color="inherit" /> : "Submit"}
+                                    {loader ? <CircularProgress size={24} color="inherit" /> : "Отправить"}
                                 </BlueButton>
                             </form>
                         </Box>

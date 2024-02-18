@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
-import { getTeacherDetails } from '../../../redux/teacherRelated/teacherHandle';
-import { useParams, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { Button, Container, Typography } from '@mui/material';
+import React, {useEffect} from 'react';
+import {getTeacherDetails} from '../../../redux/teacherRelated/teacherHandle';
+import {useParams, useNavigate} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
+import {Button, Container, Typography} from '@mui/material';
 
 const TeacherDetails = () => {
     const navigate = useNavigate();
     const params = useParams();
     const dispatch = useDispatch();
-    const { loading, teacherDetails, error } = useSelector((state) => state.teacher);
+    const {loading, teacherDetails, error} = useSelector((state) => state.teacher);
 
     const teacherID = params.id;
 
@@ -33,26 +33,27 @@ const TeacherDetails = () => {
             ) : (
                 <Container>
                     <Typography variant="h4" align="center" gutterBottom>
-                        Teacher Details
+
+                        Детали учителя
                     </Typography>
                     <Typography variant="h6" gutterBottom>
-                        Teacher Name: {teacherDetails?.name}
+                        Имя учителя: {teacherDetails?.name}
                     </Typography>
                     <Typography variant="h6" gutterBottom>
-                        Class Name: {teacherDetails?.teachSclass?.sclassName}
+                        Название класса: {teacherDetails?.teachSclass?.sclassName}
                     </Typography>
                     {isSubjectNamePresent ? (
                         <>
                             <Typography variant="h6" gutterBottom>
-                                Subject Name: {teacherDetails?.teachSubject?.subName}
+                                Название предмета: {teacherDetails?.teachSubject?.subName}
                             </Typography>
                             <Typography variant="h6" gutterBottom>
-                                Subject Sessions: {teacherDetails?.teachSubject?.sessions}
+                                Сессии предмета: {teacherDetails?.teachSubject?.sessions}
                             </Typography>
                         </>
                     ) : (
                         <Button variant="contained" onClick={handleAddSubject}>
-                            Add Subject
+                            Добавить предмет
                         </Button>
                     )}
                 </Container>

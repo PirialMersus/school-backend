@@ -1,13 +1,25 @@
 import * as React from 'react';
-import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { Grid, Box, Typography, Paper, Checkbox, FormControlLabel, TextField, CssBaseline, IconButton, InputAdornment, CircularProgress} from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Visibility, VisibilityOff } from '@mui/icons-material';
+import {useEffect, useState} from 'react';
+import {Link, useNavigate} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
+import {
+    Grid,
+    Box,
+    Typography,
+    Paper,
+    Checkbox,
+    FormControlLabel,
+    TextField,
+    CssBaseline,
+    IconButton,
+    InputAdornment,
+    CircularProgress
+} from '@mui/material';
+import {createTheme, ThemeProvider} from '@mui/material/styles';
+import {Visibility, VisibilityOff} from '@mui/icons-material';
 import bgpic from "../../assets/designlogin.jpg"
-import { LightPurpleButton } from '../../components/buttonStyles';
-import { registerUser } from '../../redux/userRelated/userHandle';
+import {LightPurpleButton} from '../../components/buttonStyles';
+import {registerUser} from '../../redux/userRelated/userHandle';
 import styled from 'styled-components';
 import Popup from '../../components/Popup';
 
@@ -18,7 +30,7 @@ const AdminRegisterPage = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const { status, currentUser, response, error, currentRole } = useSelector(state => state.user);
+    const {status, currentUser, response, error, currentRole} = useSelector(state => state.user);
 
     const [toggle, setToggle] = useState(false)
     const [loader, setLoader] = useState(false)
@@ -47,13 +59,13 @@ const AdminRegisterPage = () => {
             return;
         }
 
-        const fields = { name, email, password, role, schoolName }
+        const fields = {name, email, password, role, schoolName}
         setLoader(true)
         dispatch(registerUser(fields, role))
     };
 
     const handleInputChange = (event) => {
-        const { name } = event.target;
+        const {name} = event.target;
         if (name === 'email') setEmailError(false);
         if (name === 'password') setPasswordError(false);
         if (name === 'adminName') setAdminNameError(false);
@@ -63,21 +75,19 @@ const AdminRegisterPage = () => {
     useEffect(() => {
         if (status === 'success' || (currentUser !== null && currentRole === 'Admin')) {
             navigate('/Admin/dashboard');
-        }
-        else if (status === 'failed') {
+        } else if (status === 'failed') {
             setMessage(response)
             setShowPopup(true)
             setLoader(false)
-        }
-        else if (status === 'error') {
+        } else if (status === 'error') {
             console.log(error)
         }
     }, [status, currentUser, currentRole, navigate, error, response]);
 
     return (
         <ThemeProvider theme={defaultTheme}>
-            <Grid container component="main" sx={{ height: '100vh' }}>
-                <CssBaseline />
+            <Grid container component="main" sx={{height: '100vh'}}>
+                <CssBaseline/>
                 <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
                     <Box
                         sx={{
@@ -88,22 +98,21 @@ const AdminRegisterPage = () => {
                             alignItems: 'center',
                         }}
                     >
-                        <Typography variant="h4" sx={{ mb: 2, color: "#2c2143" }}>
-                            Admin Register
+                        <Typography variant="h4" sx={{mb: 2, color: "#2c2143"}}>
+                            Регистрация администратора
                         </Typography>
                         <Typography variant="h7">
-                            Create your own school by registering as an admin.
-                            <br />
-                            You will be able to add students and faculty and
-                            manage the system.
+                            Создайте свою собственную школу обучения, зарегистрировавшись как администратор.
+                            <br/>
+                            Вы сможете добавлять риэлторов и менторов, а также управлять системой.
                         </Typography>
-                        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 2 }}>
+                        <Box component="form" noValidate onSubmit={handleSubmit} sx={{mt: 2}}>
                             <TextField
                                 margin="normal"
                                 required
                                 fullWidth
                                 id="adminName"
-                                label="Enter your name"
+                                label="Введите ваше имя"
                                 name="adminName"
                                 autoComplete="name"
                                 autoFocus
@@ -116,11 +125,11 @@ const AdminRegisterPage = () => {
                                 required
                                 fullWidth
                                 id="schoolName"
-                                label="Create your school name"
+                                label="Введите название вашей школы"
                                 name="schoolName"
                                 autoComplete="off"
                                 error={schoolNameError}
-                                helperText={schoolNameError && 'School name is required'}
+                                helperText={schoolNameError && 'Название школы обязательно'}
                                 onChange={handleInputChange}
                             />
                             <TextField
@@ -128,11 +137,11 @@ const AdminRegisterPage = () => {
                                 required
                                 fullWidth
                                 id="email"
-                                label="Enter your email"
+                                label="Введите ваш адрес электронной почты"
                                 name="email"
                                 autoComplete="email"
                                 error={emailError}
-                                helperText={emailError && 'Email is required'}
+                                helperText={emailError && 'Адрес электронной почты обязателен'}
                                 onChange={handleInputChange}
                             />
                             <TextField
@@ -140,30 +149,30 @@ const AdminRegisterPage = () => {
                                 required
                                 fullWidth
                                 name="password"
-                                label="Password"
+                                label="Пароль"
                                 type={toggle ? 'text' : 'password'}
                                 id="password"
                                 autoComplete="current-password"
                                 error={passwordError}
-                                helperText={passwordError && 'Password is required'}
+                                helperText={passwordError && 'Введите пароль'}
                                 onChange={handleInputChange}
                                 InputProps={{
                                     endAdornment: (
                                         <InputAdornment position="end">
                                             <IconButton onClick={() => setToggle(!toggle)}>
                                                 {toggle ? (
-                                                    <Visibility />
+                                                    <Visibility/>
                                                 ) : (
-                                                    <VisibilityOff />
+                                                    <VisibilityOff/>
                                                 )}
                                             </IconButton>
                                         </InputAdornment>
                                     ),
                                 }}
                             />
-                            <Grid container sx={{ display: "flex", justifyContent: "space-between" }}>
+                            <Grid container sx={{display: "flex", justifyContent: "space-between"}}>
                                 <FormControlLabel
-                                    control={<Checkbox value="remember" color="primary" />}
+                                    control={<Checkbox value="remember" color="primary"/>}
                                     label="Запомнить меня"
                                 />
                             </Grid>
@@ -171,17 +180,17 @@ const AdminRegisterPage = () => {
                                 type="submit"
                                 fullWidth
                                 variant="contained"
-                                sx={{ mt: 3, mb: 2 }}
+                                sx={{mt: 3, mb: 2}}
                             >
                                 {loader ? <CircularProgress size={24} color="inherit"/> : "Register"}
                             </LightPurpleButton>
                             <Grid container>
                                 <Grid>
-                                    Already have an account?
+                                    У вас уже есть аккаунт?
                                 </Grid>
-                                <Grid item sx={{ ml: 2 }}>
+                                <Grid item sx={{ml: 2}}>
                                     <StyledLink to="/Adminlogin">
-                                        Log in
+                                        Войти
                                     </StyledLink>
                                 </Grid>
                             </Grid>
@@ -203,7 +212,7 @@ const AdminRegisterPage = () => {
                     }}
                 />
             </Grid>
-            <Popup message={message} setShowPopup={setShowPopup} showPopup={showPopup} />
+            <Popup message={message} setShowPopup={setShowPopup} showPopup={showPopup}/>
         </ThemeProvider>
     );
 }

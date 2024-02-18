@@ -34,21 +34,21 @@ const StudentProfile = () => {
             <Grid item xs={12}>
               <Box display="flex" justifyContent="center">
                 <Typography variant="subtitle1" component="p" textAlign="center">
-                  Student Roll No: {currentUser.rollNum}
+                  Регистрационный номер студента:  {currentUser.rollNum}
                 </Typography>
               </Box>
             </Grid>
             <Grid item xs={12}>
               <Box display="flex" justifyContent="center">
                 <Typography variant="subtitle1" component="p" textAlign="center">
-                  Class: {sclassName.sclassName}
+                  Класс: {sclassName.sclassName}
                 </Typography>
               </Box>
             </Grid>
             <Grid item xs={12}>
               <Box display="flex" justifyContent="center">
                 <Typography variant="subtitle1" component="p" textAlign="center">
-                  School: {studentSchool.schoolName}
+                  Школа: {studentSchool.schoolName}
                 </Typography>
               </Box>
             </Grid>
@@ -57,17 +57,17 @@ const StudentProfile = () => {
         <Card>
           <CardContent>
             <Typography variant="h6" gutterBottom>
-              Personal Information
+              Информация о пользователе
             </Typography>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <Typography variant="subtitle1" component="p">
-                  <strong>Date of Birth:</strong> January 1, 2000
+                  <strong>Дата рождения:</strong> 1 января, 2000 г.
                 </Typography>
               </Grid>
               <Grid item xs={12} sm={6}>
                 <Typography variant="subtitle1" component="p">
-                  <strong>Gender:</strong> Male
+                  <strong>Пол:</strong> Мужской
                 </Typography>
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -77,17 +77,17 @@ const StudentProfile = () => {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <Typography variant="subtitle1" component="p">
-                  <strong>Phone:</strong> (123) 456-7890
+                  <strong>Телефон:</strong> (123) 456-7890
                 </Typography>
               </Grid>
               <Grid item xs={12} sm={6}>
                 <Typography variant="subtitle1" component="p">
-                  <strong>Address:</strong> 123 Main Street, City, Country
+                  <strong>Адрес:</strong> Сегедская 16
                 </Typography>
               </Grid>
               <Grid item xs={12} sm={6}>
                 <Typography variant="subtitle1" component="p">
-                  <strong>Emergency Contact:</strong> (987) 654-3210
+                  <strong>Контакт в чрезвычайной ситуации:</strong> 067 123 45 67
                 </Typography>
               </Grid>
             </Grid>
