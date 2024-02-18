@@ -1,7 +1,21 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Grid, Box, Typography, Paper, Checkbox, FormControlLabel, TextField, CssBaseline, IconButton, InputAdornment, CircularProgress, Backdrop } from '@mui/material';
+import {
+    Button,
+    Grid,
+    Box,
+    Typography,
+    Paper,
+    Checkbox,
+    FormControlLabel,
+    TextField,
+    CssBaseline,
+    IconButton,
+    InputAdornment,
+    CircularProgress, Backdrop,
+} from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import bgpic from "../assets/designlogin.jpg"
@@ -13,6 +27,8 @@ import Popup from '../components/Popup';
 const defaultTheme = createTheme();
 
 const LoginPage = ({ role }) => {
+
+    const theme = useTheme();
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -179,12 +195,12 @@ const LoginPage = ({ role }) => {
                                     required
                                     fullWidth
                                     id="email"
-                                    label="Enter your email"
+                                    label="Введите вашу почту"
                                     name="email"
                                     autoComplete="email"
                                     autoFocus
                                     error={emailError}
-                                    helperText={emailError && 'Email is required'}
+                                    helperText={emailError && 'Введите e-mail'}
                                     onChange={handleInputChange}
                                 />
                             )}
@@ -193,7 +209,7 @@ const LoginPage = ({ role }) => {
                                 required
                                 fullWidth
                                 name="password"
-                                label="Password"
+                                label="Пароль"
                                 type={toggle ? 'text' : 'password'}
                                 id="password"
                                 autoComplete="current-password"
@@ -219,7 +235,7 @@ const LoginPage = ({ role }) => {
                                     control={<Checkbox value="remember" color="primary" />}
                                     label="Запомнить меня"
                                 />
-                                <StyledLink href="#">
+                                <StyledLink href="#" theme={theme}>
                                     Забыли пароль?
                                 </StyledLink>
                             </Grid>
@@ -237,7 +253,7 @@ const LoginPage = ({ role }) => {
                                 fullWidth
                                 onClick={guestModeHandler}
                                 variant="outlined"
-                                sx={{ mt: 2, mb: 3, color: "#7f56da", borderColor: "#7f56da" }}
+                                sx={{mt: 2, mb: 3, color: "#660513", borderColor: "#660513"}}
                             >
                                 Войти как гость
                             </Button>
@@ -247,7 +263,7 @@ const LoginPage = ({ role }) => {
                                         Нет акаунта?
                                     </Grid>
                                     <Grid item sx={{ ml: 2 }}>
-                                        <StyledLink to="/Adminregister">
+                                        <StyledLink to="/Adminregister" theme={theme}>
                                             Зарегистрироваться
                                         </StyledLink>
                                     </Grid>
@@ -264,9 +280,9 @@ const LoginPage = ({ role }) => {
                     sx={{
                         backgroundImage: `url(${bgpic})`,
                         backgroundRepeat: 'no-repeat',
-                        backgroundColor: (t) =>
-                            t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
-                        backgroundSize: 'cover',
+                        // backgroundColor: (t) =>
+                        //     t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+                        // backgroundSize: 'cover',
                         backgroundPosition: 'center',
                     }}
                 />
@@ -288,5 +304,5 @@ export default LoginPage
 const StyledLink = styled(Link)`
   margin-top: 9px;
   text-decoration: none;
-  color: #7f56da;
+    color: ${({ theme }) => theme.palette.primary.main};
 `;
