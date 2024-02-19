@@ -14,7 +14,7 @@ const studentRegister = async (req, res) => {
         });
 
         if (existingStudent) {
-            res.send({ message: 'Roll Number already exists' });
+            res.send({ message: 'Номер зачётки уже существует' });
         }
         else {
             const student = new Student({

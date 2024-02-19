@@ -378,20 +378,20 @@ const ViewStudent = () => {
     const StudentDetailsSection = () => {
         return (
             <div>
-                Name: {userDetails.name}
+                Имя: {userDetails.name}
                 <br/>
-                Roll Number: {userDetails.rollNum}
+                Номер зачётки: {userDetails.rollNum}
                 <br/>
-                Class: {sclassName.sclassName}
+                Класс: {sclassName.sclassName}
                 <br/>
-                School: {studentSchool.schoolName}
+                Школа: {studentSchool.schoolName}
                 {
                     subjectAttendance && Array.isArray(subjectAttendance) && subjectAttendance.length > 0 && (
                         <CustomPieChart data={chartData}/>
                     )
                 }
                 <Button variant="contained" sx={styles.styledButton} onClick={deleteHandler}>
-                    Delete
+                    Удалить
                 </Button>
                 <br/>
                 {/* <Button variant="contained" sx={styles.styledButton} className="show-tab" onClick={() => { setShowTab(!showTab) }}>
@@ -437,7 +437,7 @@ const ViewStudent = () => {
             {loading
                 ?
                 <>
-                    <div>Loading...</div>
+                    <div>Загрузка...</div>
                 </>
                 :
                 <>
@@ -451,9 +451,9 @@ const ViewStudent = () => {
                                              bgcolor: 'background.paper',
                                              zIndex: 1
                                          }}>
-                                    <Tab label="Details" value="1"/>
-                                    <Tab label="Attendance" value="2"/>
-                                    <Tab label="Marks" value="3"/>
+                                    <Tab label="Детали" value="1"/>
+                                    <Tab label="Посещаемость" value="2"/>
+                                    <Tab label="Оценки" value="3"/>
                                 </TabList>
                             </Box>
                             <Container sx={{marginTop: "3rem", marginBottom: "4rem"}}>

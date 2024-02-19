@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom'
-import { getClassDetails, getClassStudents, getSubjectList } from "../../../redux/sclassRelated/sclassHandle";
-import { deleteUser } from '../../../redux/userRelated/userHandle';
+import {useEffect, useState} from "react";
+import {useDispatch, useSelector} from 'react-redux';
+import {useNavigate, useParams} from 'react-router-dom'
+import {getClassDetails, getClassStudents, getSubjectList} from "../../../redux/sclassRelated/sclassHandle";
+import {deleteUser} from '../../../redux/userRelated/userHandle';
 import {
     Box, Container, Typography, Tab, IconButton
 } from '@mui/material';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-import { resetSubjects } from "../../../redux/sclassRelated/sclassSlice";
-import { BlueButton, GreenButton, PurpleButton } from "../../../components/buttonStyles";
+import {resetSubjects} from "../../../redux/sclassRelated/sclassSlice";
+import {BlueButton, GreenButton, PurpleButton} from "../../../components/buttonStyles";
 import TableTemplate from "../../../components/TableTemplate";
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
@@ -23,7 +23,15 @@ const ClassDetails = () => {
     const params = useParams()
     const navigate = useNavigate()
     const dispatch = useDispatch();
-    const { subjectsList, sclassStudents, sclassDetails, loading, error, response, getresponse } = useSelector((state) => state.sclass);
+    const {
+        subjectsList,
+        sclassStudents,
+        sclassDetails,
+        loading,
+        error,
+        response,
+        getresponse
+    } = useSelector((state) => state.sclass);
 
     const classID = params.id
 
@@ -60,8 +68,8 @@ const ClassDetails = () => {
     }
 
     const subjectColumns = [
-        { id: 'name', label: 'Subject Name', minWidth: 170 },
-        { id: 'code', label: 'Subject Code', minWidth: 100 },
+        {id: 'name', label: 'Имя предмета', minWidth: 170},
+        {id: 'code', label: 'Код предмета', minWidth: 100},
     ]
 
     const subjectRows = subjectsList && subjectsList.length > 0 && subjectsList.map((subject) => {
@@ -72,11 +80,11 @@ const ClassDetails = () => {
         };
     })
 
-    const SubjectsButtonHaver = ({ row }) => {
+    const SubjectsButtonHaver = ({row}) => {
         return (
             <>
                 <IconButton onClick={() => deleteHandler(row.id, "Subject")}>
-                    <DeleteIcon color="error" />
+                    <DeleteIcon color="error"/>
                 </IconButton>
                 <BlueButton
                     variant="contained"
@@ -85,18 +93,18 @@ const ClassDetails = () => {
                     }}
                 >
                     Просмотреть
-                </BlueButton >
+                </BlueButton>
             </>
         );
     };
 
     const subjectActions = [
         {
-            icon: <PostAddIcon color="primary" />, name: 'Add New Subject',
+            icon: <PostAddIcon color="primary"/>, name: 'Добавить новый предмет',
             action: () => navigate("/Admin/addsubject/" + classID)
         },
         {
-            icon: <DeleteIcon color="error" />, name: 'Delete All Subjects',
+            icon: <DeleteIcon color="error"/>, name: 'Удалить все предметы',
             action: () => deleteHandler(classID, "SubjectsClass")
         }
     ];
@@ -105,7 +113,7 @@ const ClassDetails = () => {
         return (
             <>
                 {response ?
-                    <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '16px' }}>
+                    <Box sx={{display: 'flex', justifyContent: 'flex-end', marginTop: '16px'}}>
                         <GreenButton
                             variant="contained"
                             onClick={() => navigate("/Admin/addsubject/" + classID)}
@@ -119,8 +127,8 @@ const ClassDetails = () => {
                             Список предметов:
                         </Typography>
 
-                        <TableTemplate buttonHaver={SubjectsButtonHaver} columns={subjectColumns} rows={subjectRows} />
-                        <SpeedDialTemplate actions={subjectActions} />
+                        <TableTemplate buttonHaver={SubjectsButtonHaver} columns={subjectColumns} rows={subjectRows}/>
+                        <SpeedDialTemplate actions={subjectActions}/>
                     </>
                 }
             </>
@@ -128,8 +136,8 @@ const ClassDetails = () => {
     }
 
     const studentColumns = [
-        { id: 'name', label: 'Name', minWidth: 170 },
-        { id: 'rollNum', label: 'Roll Number', minWidth: 100 },
+        {id: 'name', label: 'Имя', minWidth: 170},
+        {id: 'rollNum', label: 'Номер зачётки', minWidth: 100}
     ]
 
     const studentRows = sclassStudents.map((student) => {
@@ -140,11 +148,11 @@ const ClassDetails = () => {
         };
     })
 
-    const StudentsButtonHaver = ({ row }) => {
+    const StudentsButtonHaver = ({row}) => {
         return (
             <>
                 <IconButton onClick={() => deleteHandler(row.id, "Student")}>
-                    <PersonRemoveIcon color="error" />
+                    <PersonRemoveIcon color="error"/>
                 </IconButton>
                 <BlueButton
                     variant="contained"
@@ -166,11 +174,11 @@ const ClassDetails = () => {
 
     const studentActions = [
         {
-            icon: <PersonAddAlt1Icon color="primary" />, name: 'Add New Student',
+            icon: <PersonAddAlt1Icon color="primary"/>, name: 'Добавить нового риэлтора',
             action: () => navigate("/Admin/class/addstudents/" + classID)
         },
         {
-            icon: <PersonRemoveIcon color="error" />, name: 'Delete All Students',
+            icon: <PersonRemoveIcon color="error"/>, name: 'Удалить всех риэлторов',
             action: () => deleteHandler(classID, "StudentsClass")
         },
     ];
@@ -180,7 +188,7 @@ const ClassDetails = () => {
             <>
                 {getresponse ? (
                     <>
-                        <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '16px' }}>
+                        <Box sx={{display: 'flex', justifyContent: 'flex-end', marginTop: '16px'}}>
                             <GreenButton
                                 variant="contained"
                                 onClick={() => navigate("/Admin/class/addstudents/" + classID)}
@@ -195,8 +203,8 @@ const ClassDetails = () => {
                             Students List:
                         </Typography>
 
-                        <TableTemplate buttonHaver={StudentsButtonHaver} columns={studentColumns} rows={studentRows} />
-                        <SpeedDialTemplate actions={studentActions} />
+                        <TableTemplate buttonHaver={StudentsButtonHaver} columns={studentColumns} rows={studentRows}/>
+                        <SpeedDialTemplate actions={studentActions}/>
                     </>
                 )}
             </>
@@ -255,35 +263,40 @@ const ClassDetails = () => {
                 <div>Loading...</div>
             ) : (
                 <>
-                    <Box sx={{ width: '100%', typography: 'body1', }} >
+                    <Box sx={{width: '100%', typography: 'body1',}}>
                         <TabContext value={value}>
-                            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                                <TabList onChange={handleChange} sx={{ position: 'fixed', width: '100%', bgcolor: 'background.paper', zIndex: 1 }}>
-                                    <Tab label="Details" value="1" />
-                                    <Tab label="Subjects" value="2" />
-                                    <Tab label="Students" value="3" />
-                                    <Tab label="Teachers" value="4" />
+                            <Box sx={{borderBottom: 1, borderColor: 'divider'}}>
+                                <TabList onChange={handleChange} sx={{
+                                    position: 'fixed',
+                                    width: '100%',
+                                    bgcolor: 'background.paper',
+                                    zIndex: 1
+                                }}>
+                                    <Tab label="Details" value="1"/>
+                                    <Tab label="Subjects" value="2"/>
+                                    <Tab label="Students" value="3"/>
+                                    <Tab label="Teachers" value="4"/>
                                 </TabList>
                             </Box>
-                            <Container sx={{ marginTop: "3rem", marginBottom: "4rem" }}>
+                            <Container sx={{marginTop: "3rem", marginBottom: "4rem"}}>
                                 <TabPanel value="1">
-                                    <ClassDetailsSection />
+                                    <ClassDetailsSection/>
                                 </TabPanel>
                                 <TabPanel value="2">
-                                    <ClassSubjectsSection />
+                                    <ClassSubjectsSection/>
                                 </TabPanel>
                                 <TabPanel value="3">
-                                    <ClassStudentsSection />
+                                    <ClassStudentsSection/>
                                 </TabPanel>
                                 <TabPanel value="4">
-                                    <ClassTeachersSection />
+                                    <ClassTeachersSection/>
                                 </TabPanel>
                             </Container>
                         </TabContext>
                     </Box>
                 </>
             )}
-            <Popup message={message} setShowPopup={setShowPopup} showPopup={showPopup} />
+            <Popup message={message} setShowPopup={setShowPopup} showPopup={showPopup}/>
         </>
     );
 };

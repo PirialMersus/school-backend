@@ -117,7 +117,7 @@ const AdminRegisterPage = () => {
                                 autoComplete="name"
                                 autoFocus
                                 error={adminNameError}
-                                helperText={adminNameError && 'Name is required'}
+                                helperText={adminNameError && 'Имя обязательно'}
                                 onChange={handleInputChange}
                             />
                             <TextField

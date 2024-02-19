@@ -53,7 +53,7 @@ const AddNotice = () => {
             required />
 
           <label>Подробности</label>
-          <input className="registerInput" type="text" placeholder="Enter notice details..."
+          <input className="registerInput" type="text" placeholder="Введите детали объявления..."
             value={details}
             onChange={(event) => setDetails(event.target.value)}
             required />

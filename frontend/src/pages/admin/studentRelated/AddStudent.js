@@ -89,8 +89,8 @@ const AddStudent = ({ situation }) => {
             <div className="register">
                 <form className="registerForm" onSubmit={submitHandler}>
                     <span className="registerTitle">Add Student</span>
-                    <label>Name</label>
-                    <input className="registerInput" type="text" placeholder="Enter student's name..."
+                    <label>Имя</label>
+                    <input className="registerInput" type="text" placeholder="Введите имя студента..."
                         value={name}
                         onChange={(event) => setName(event.target.value)}
                         autoComplete="name" required />
@@ -114,7 +114,7 @@ const AddStudent = ({ situation }) => {
                     }
 
                     <label>Номер зачётки</label>
-                    <input className="registerInput" type="number" placeholder="Enter student's Roll Number..."
+                    <input className="registerInput" type="number" placeholder="Введите номер зачётки студента..."
                         value={rollNum}
                         onChange={(event) => setRollNum(event.target.value)}
                         required />

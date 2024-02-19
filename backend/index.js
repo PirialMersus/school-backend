@@ -15,7 +15,7 @@ dotenv.config();
 
 app.use(express.json({ limit: '10mb' }))
 const corsOptions = {
-  origin: '*',
+  origin: ['https://teach-system.netlify.app/', 'http://localhost:3000'],
   optionsSuccessStatus: 200
 };
 

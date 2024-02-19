@@ -55,9 +55,9 @@ const ShowStudents = () => {
     }
 
     const studentColumns = [
-        { id: 'name', label: 'Name', minWidth: 170 },
-        { id: 'rollNum', label: 'Roll Number', minWidth: 100 },
-        { id: 'sclassName', label: 'Class', minWidth: 170 },
+        { id: 'name', label: 'Имя', minWidth: 170 },
+        { id: 'rollNum', label: 'Номер зачётки', minWidth: 100 },
+        { id: 'sclassName', label: 'Класс', minWidth: 170 },
     ]
 
     const studentRows = studentsList && studentsList.length > 0 && studentsList.map((student) => {
@@ -70,7 +70,7 @@ const ShowStudents = () => {
     })
 
     const StudentButtonHaver = ({ row }) => {
-        const options = ['Take Attendance', 'Provide Marks'];
+        const options = ['Принять посещаемость', 'Предоставить оценки'];
 
         const [open, setOpen] = React.useState(false);
         const anchorRef = React.useRef(null);
@@ -175,11 +175,11 @@ const ShowStudents = () => {
 
     const actions = [
         {
-            icon: <PersonAddAlt1Icon color="primary" />, name: 'Add New Student',
+            icon: <PersonAddAlt1Icon color="primary" />, name: 'Добавить нового риэлтора',
             action: () => navigate("/Admin/addstudents")
         },
         {
-            icon: <PersonRemoveIcon color="error" />, name: 'Delete All Students',
+            icon: <PersonRemoveIcon color="error" />, name: 'Удалить всех риэлторов',
             action: () => deleteHandler(currentUser._id, "Students")
         },
     ];

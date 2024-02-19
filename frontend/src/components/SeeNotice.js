@@ -24,9 +24,9 @@ const SeeNotice = () => {
     }
 
     const noticeColumns = [
-        { id: 'title', label: 'Title', minWidth: 170 },
-        { id: 'details', label: 'Details', minWidth: 100 },
-        { id: 'date', label: 'Date', minWidth: 170 },
+        { id: 'title', label: 'Заголовок', minWidth: 170 },
+        { id: 'details', label: 'Детали', minWidth: 100 },
+        { id: 'date', label: 'Дата', minWidth: 170 },
     ];
 
     const noticeRows = noticesList.map((notice) => {
