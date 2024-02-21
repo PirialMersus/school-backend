@@ -165,14 +165,14 @@ const LoginPage = ({ role }) => {
                                         required
                                         fullWidth
                                         id="rollNumber"
-                                        label="Введите ваш номер регистрации"
+                                        label="Введите ваш номер зачетки"
                                         name="rollNumber"
                                         autoComplete="off"
                                         type="number"
                                         autoFocus
                                         error={rollNumberError}
                                         helperText={rollNumberError && '\n' +
-                                          'Требуется номер регистрации'}
+                                          'Требуется номер зачетки'}
                                         onChange={handleInputChange}
                                     />
                                     <TextField
