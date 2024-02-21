@@ -12,7 +12,7 @@ dotenv.config();
 
 // app.use(bodyParser.json({ limit: '10mb', extended: true }))
 // app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }))
-
+console.log('hello world')
 app.use(express.json({ limit: '10mb' }))
 const corsOptions = {
   origin: ['https://teach-system.netlify.app/', 'http://localhost:3000'],
