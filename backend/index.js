@@ -14,13 +14,13 @@ dotenv.config();
 // app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }))
 console.log('hello world')
 app.use(express.json({ limit: '10mb' }))
-const corsOptions = {
-  origin: ['https://teach-system.netlify.app/', 'http://localhost:3000'],
-  optionsSuccessStatus: 200
-};
+// const corsOptions = {
+//   origin: ['https://school-backend-delta.vercel.app/', 'http://localhost:3000'],
+//   optionsSuccessStatus: 200
+// };
 
-app.use(cors(corsOptions));
-
+// app.use(cors(corsOptions));
+app.use(cors());
 mongoose
     .connect(process.env.MONGO_URL, {
         useNewUrlParser: true,
