@@ -19,7 +19,6 @@ app.use(express.json({ limit: '10mb' }))
 //   optionsSuccessStatus: 200
 // };
 
-// app.use(cors(corsOptions));
 app.use(cors({
     origin: '*',
     methods: '*',
