@@ -19,12 +19,17 @@ app.use(express.json({ limit: '10mb' }))
 //   optionsSuccessStatus: 200
 // };
 
-app.use(cors({
+const corsOptions = {
     origin: '*',
-    methods: '*',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
-}));
+    optionsSuccessStatus: 204 // некоторые старые браузеры (IE11, разные SmartTV) требуют этот статус
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); // добавляет специальный маршрут для предзапросов (preflight)
+
 mongoose
     .connect(process.env.MONGO_URL, {
         useNewUrlParser: true,
