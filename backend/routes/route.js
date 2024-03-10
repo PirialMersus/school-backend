@@ -26,7 +26,7 @@ const { subjectCreate, classSubjects, deleteSubjectsByClass, getSubjectDetail, d
 const { teacherRegister, teacherLogIn, getTeachers, getTeacherDetail, deleteTeachers, deleteTeachersByClass, deleteTeacher, updateTeacherSubject, teacherAttendance } = require('../controllers/teacher-controller.js');
 
 router.get("/", (req, res) => {
-    res.send("This is a test endpoint! 123");
+    res.send("This is a test endpoint! 1232222");
 });
 // Admin
 router.post('/AdminReg', adminRegister);
