@@ -20,7 +20,12 @@ app.use(express.json({ limit: '10mb' }))
 // };
 
 // app.use(cors(corsOptions));
-app.use(cors());
+app.use(cors({
+    origin: '*',
+    methods: '*',
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+}));
 mongoose
     .connect(process.env.MONGO_URL, {
         useNewUrlParser: true,
