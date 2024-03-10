@@ -12,12 +12,13 @@ dotenv.config();
 
 // app.use(bodyParser.json({ limit: '10mb', extended: true }))
 // app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }))
-console.log('hello world')
-app.use(express.json({ limit: '10mb' }))
+console.log('hello world');
+app.use(express.json({limit: '10mb'}));
 // const corsOptions = {
 //   origin: ['https://school-backend-delta.vercel.app/', 'http://localhost:3000'],
 //   optionsSuccessStatus: 200
 // };
+console.log('hello');
 
 const corsOptions = {
     origin: '*',
