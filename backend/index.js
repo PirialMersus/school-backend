@@ -10,16 +10,8 @@ const PORT = process.env.PORT || 8081
 
 dotenv.config();
 
-// app.use(bodyParser.json({ limit: '10mb', extended: true }))
-// app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }))
 console.log('hello world');
 app.use(express.json({limit: '10mb'}));
-// const corsOptions = {
-//   origin: ['https://school-backend-delta.vercel.app/', 'http://localhost:3000'],
-//   optionsSuccessStatus: 200
-// };
-console.log('hello');
-
 const corsOptions = {
     origin: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
@@ -27,6 +19,9 @@ const corsOptions = {
     credentials: true,
     optionsSuccessStatus: 204 // некоторые старые браузеры (IE11, разные SmartTV) требуют этот статус
 };
+console.log('hello');
+
+
 
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions)); // добавляет специальный маршрут для предзапросов (preflight)
